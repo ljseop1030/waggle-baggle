@@ -26,7 +26,10 @@ export async function updateSeat(seatName, myUUID) {
     const seats = {
       seat1: { occupied: false, userId: "" },
       seat2: { occupied: false, userId: "" },
-      seat3: { occupied: false, userId: "" }
+      seat3: { occupied: false, userId: "" },
+      seat4: { occupied: false, userId: "" },  // 추가
+      seat5: { occupied: false, userId: "" },  // 추가
+      seat6: { occupied: false, userId: "" }   // 추가
     };
     
     // 2. 내가 앉은 좌석만 true로 변경
