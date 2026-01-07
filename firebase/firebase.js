@@ -42,7 +42,7 @@ export async function updateSeat(seatName, myUUID) {
     const seatsRef = ref(database, 'seats');
     await set(seatsRef, seats);
     
-    console.log(`✅ ${seatName}에 앉았습니다!`);
+    console.log(`✅ ${myUUID}: ${seatName}`);
   } catch (error) {
     console.error('❌ 업데이트 실패:', error);
   }
