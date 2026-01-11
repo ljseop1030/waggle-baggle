@@ -16,15 +16,21 @@ export async function handleSeatDetected(currentSeat, myUUID) {
   if (now - lastUpdateTime < 1000) return;
   lastUpdateTime = now;
 
-  // 이전 seat 정리
-  if (lastSeat) {
-    await clearSeat(lastSeat);
+  try {
+    // 순서 바꾸기: 새 좌석 먼저 점유
+    await updateSeat(currentSeat, myUUID);
+    
+    // 성공하면 이전 좌석 비우기
+    if (lastSeat) {
+      await clearSeat(lastSeat).catch(e => 
+        console.warn('⚠️ 이전 좌석 정리 실패:', e)
+      );
+    }
+    
+    lastSeat = currentSeat;
+  } catch (error) {
+    console.error('❌ 좌석 점유 실패:', error);
   }
-
-  // 새 seat 점유
-  await updateSeat(currentSeat, myUUID);
-
-  lastSeat = currentSeat;
 }
 
 
@@ -32,6 +38,12 @@ export async function handleSeatDetected(currentSeat, myUUID) {
 export async function handleSeatLost() {
   if (!lastSeat) return;
 
-  await clearSeat(lastSeat);
-  lastSeat = null;
+  try {
+    await clearSeat(lastSeat);
+    lastSeat = null;
+  } catch (error) {
+    console.error('❌ 좌석 비우기 실패:', error);
+    // 실패해도 상태는 초기화 (다음 감지를 위해)
+    lastSeat = null;
+  }
 }
