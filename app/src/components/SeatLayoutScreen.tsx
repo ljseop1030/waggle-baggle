@@ -1,3 +1,4 @@
+import React from 'react'; // 👈 이 줄을 각 파일 맨 위에 붙여넣으세요.
 import { useState, useEffect } from 'react';
 import { ArrowLeft, RefreshCw } from 'lucide-react';
 import { DragonCharacter } from './DragonCharacter';
