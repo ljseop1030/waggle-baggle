@@ -26,10 +26,7 @@ export async function updateSeat(seatName, myUUID) {
     const seats = {
       seat1: { occupied: false, userId: "" },
       seat2: { occupied: false, userId: "" },
-      seat3: { occupied: false, userId: "" },
-      seat4: { occupied: false, userId: "" },  // 추가
-      seat5: { occupied: false, userId: "" },  // 추가
-      seat6: { occupied: false, userId: "" }   // 추가
+      seat3: { occupied: false, userId: "" }
     };
     
     // 2. 내가 앉은 좌석만 true로 변경
@@ -64,4 +61,5 @@ export async function testUpdateSeat() {
   setTimeout(async () => {
     await updateSeat('seat3', 'test-user-123');
   }, 4000);
+
 }
