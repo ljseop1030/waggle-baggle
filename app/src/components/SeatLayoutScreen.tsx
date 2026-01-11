@@ -4,7 +4,7 @@ import { ArrowLeft, RefreshCw } from 'lucide-react';
 import { DragonCharacter } from './DragonCharacter';
 import { FullRoomPopup } from './FullRoomPopup';
 import { Screen } from '../App';
-import { database } from '../firebase'; 
+import { database } from '../firebase';
 import { ref, onValue } from 'firebase/database';
 
 interface SeatLayoutScreenProps {
