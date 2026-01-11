@@ -1,6 +1,6 @@
 // firebase.js
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, update } from 'firebase/database';
+import { getDatabase, ref, update, set } from 'firebase/database';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBqumqEU_uBHoL72N88V0hacIO6S1XX8iI",
@@ -12,21 +12,19 @@ const firebaseConfig = {
   appId: "1:582833115978:web:fa7e6b2dc2ccd3bef527b3"
 };
 
-// Firebase 초기화
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 /*
-  seat 신호 업데이트
-  - seat 중심 구조 유지
-  - 감지된 seat만 변경
+  🔥 다중 사용자 지원 updateSeat
+  - 특정 좌석만 업데이트
+  - 다른 좌석은 건드리지 않음
 */
 export async function updateSeat(seatName, myUUID) {
   try {
     if (!seatName) return;
 
     const seatRef = ref(database, `seats/${seatName}`);
-
     await update(seatRef, {
       occupied: true,
       userId: myUUID,

@@ -1,5 +1,5 @@
 // seatController.js
-import { updateSeat, clearSeat } from "./firebase";
+import { updateSeat, clearSeat } from "./firebase.js";
 
 let lastSeat = null;
 let lastUpdateTime = 0;
