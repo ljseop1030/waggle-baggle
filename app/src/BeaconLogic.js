@@ -7,9 +7,9 @@ let rssiHistory = []; // 최근 5개 데이터를 담을 배열 [cite: 33]
  * RSSI 평균값을 받아 좌석 번호(Zone)를 반환하는 함수 [cite: 31]
  */
 export function mappingSeat(avgRssi) {
-    if (avgRssi > -60) return "seat_1";        // 매우 강함
-    if (avgRssi > -75) return "seat_2";        // 보통
-    if (avgRssi > -90) return "seat_3";        // 약함
+    if (avgRssi > -60) return "seat1";        // 매우 강함
+    if (avgRssi > -75) return "seat2";        // 보통
+    if (avgRssi > -90) return "seat3";        // 약함
     return null;                               // 신호 없음
 }
 
