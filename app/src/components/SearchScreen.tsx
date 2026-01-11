@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { Screen } from '../App';
-import { database } from '../../../firebase/firebase'; 
+import { database } from '../firebase'; 
 import { ref, onValue } from 'firebase/database';
 
 interface SearchScreenProps {
