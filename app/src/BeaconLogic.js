@@ -1,4 +1,4 @@
-import { handleSeatDetected, handleSeatLost } from '../firebase/seatController';
+import { handleSeatDetected, handleSeatLost } from '../../firebase/seatController';
 const MY_USER_ID = 'user_' + Math.random().toString(36).substr(2, 9);
 
 let rssiHistory = []; // 최근 5개 데이터를 담을 배열 [cite: 33]
