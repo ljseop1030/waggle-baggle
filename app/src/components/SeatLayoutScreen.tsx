@@ -63,7 +63,7 @@ export function SeatLayoutScreen({
   } else {
     // 2. 204호: 팀원 A의 데이터 구조(seat_1, seat_2, seat_3)와 실시간 연동
     const totalFrontier = 3;
-    const targetKeys = ['seat_1', 'seat_2', 'seat_3']; // 팀원 A의 리턴값과 일치
+    const targetKeys = ['seat1', 'seat2', 'seat3']; // 팀원 A의 리턴값과 일치
     
     displaySeats = targetKeys.map((key) => ({
       id: key,
