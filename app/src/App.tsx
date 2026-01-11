@@ -26,9 +26,9 @@ export default function App() {
 
       // ✅ 실제 비콘 연결 (UUID는 iOS Beacon Simulator 설정과 맞춰야 함)
       const device = await nav.bluetooth.requestDevice({
-          filters: [{
-          services: ['ee673c60-0c2e-4ed2-bfe1-229ecf94f76a'] // 소문자로 변환
-        }]
+        acceptAllDevices: true, // 👈 다시 'true'로 바꿔서 기기가 뜨는지 확인합니다.
+        optionalServices: ['ee673c60-0c2e-4ed2-bfe1-229ecf94f76a', 'battery_service']
+
       });
 
       const server = await device.gatt.connect();
