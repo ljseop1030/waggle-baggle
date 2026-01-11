@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { MapScreen } from './components/MapScreen';
 import { SeatLayoutScreen } from './components/SeatLayoutScreen';
 import { SearchScreen } from './components/SearchScreen';
@@ -18,6 +18,7 @@ export default function App() {
   const [mySeat, setMySeat] = useState<string | null>(null);
 
   // 2. 비콘 스캔 및 서버 전송 로직
+  
   const startBeaconScan = async () => {
     try {
       const nav = navigator as any; 
@@ -27,8 +28,8 @@ export default function App() {
       }
 
       const device = await nav.bluetooth.requestDevice({
-        acceptAllDevices: true,
-        optionalServices: ['battery_service']
+        acceptAllDevices: true, // 👈 다시 'true'로 바꿔서 기기가 뜨는지 확인합니다.
+        optionalServices: ['ee673c60-0c2e-4ed2-bfe1-229ecf94f76a', 'battery_service']
       });
 
       setIsScanning(true);

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Map, Search, User } from 'lucide-react';
 import { Screen } from '../App';
 
