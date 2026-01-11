@@ -1,3 +1,6 @@
+import { handleSeatDetected, handleSeatLost } from '../firebase/seatController';
+const MY_USER_ID = 'user_' + Math.random().toString(36).substr(2, 9);
+
 let rssiHistory = []; // 최근 5개 데이터를 담을 배열 [cite: 33]
 
 /**
@@ -13,7 +16,7 @@ export function mappingSeat(avgRssi) {
 /**
  * 신호 데이터 정제(Smoothing) 및 판정 실행 함수 [cite: 32]
  */
-export function processSignal(rawRssi) {
+export async function processSignal(rawRssi) {
     // 1. 새로운 데이터를 배열에 추가 
     rssiHistory.push(rawRssi);
     
@@ -30,6 +33,13 @@ export function processSignal(rawRssi) {
     const seatId = mappingSeat(average);
     
     console.log(`📡 입력: ${rawRssi} | 📊 평균: ${average.toFixed(1)} | 📍 판정: ${seatId}`);
+
+    if (seatId) {
+        await handleSeatDetected(seatId, MY_USER_ID);
+    } else {
+        await handleSeatLost();
+    }
+
     return seatId;
 }
 
