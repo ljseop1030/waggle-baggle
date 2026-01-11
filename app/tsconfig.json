@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite/client"],
+    
+    /* JS 허용 설정 추가 */
+    "allowJs": true,      
+    "checkJs": false,
+    "noEmit": true      
+  },
+  "include": ["src"]
+}
