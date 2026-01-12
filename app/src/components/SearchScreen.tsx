@@ -34,7 +34,7 @@ export function SearchScreen({ onLocationClick }: SearchScreenProps) {
       }
 
       // 팀원 A가 사용하는 키값: seat_1, seat_2, seat_3
-      const targetKeys = ['seat_1', 'seat_2', 'seat_3'];
+      const targetKeys = ['seat1', 'seat2', 'seat3'];
       const total = 3;
       
       // occupied: true인 개수만 필터링해서 세기
